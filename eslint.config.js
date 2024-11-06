@@ -23,6 +23,9 @@ export default tseslint.config(
         'warn',
         { allowConstantExport: true },
       ],
+      'comma-dangle': ['error', 'never'],
+      quotes: ['error', 'single'],
+      'react/prop-types': [0],
     },
   },
 )
