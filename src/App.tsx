@@ -11,7 +11,7 @@ export function App() {
     <>
       <Button onClick={() => setCounter(counter + ' ' + 'нажатая')}>{counter}</Button>
       <Button appearence='big' onClick={() => setCounter(counter + ' ' + 'нажатая')}>{counter}</Button>
-      <Input placeholder='Email'/>
+      <Input isValid placeholder='Email'/>
     </>
   )
 }
