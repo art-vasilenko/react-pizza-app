@@ -10,11 +10,11 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   export const Button = ({children, className, appearence = 'small', ...props}: Props) => {
 
   return (
-    <div>
+    <>
         <button className={cn('button accent', className, 
         {'small': appearence === 'small','big': appearence === 'big' })}{...props}>
             {children}
         </button>
-    </div>
+    </>
   )
 }
