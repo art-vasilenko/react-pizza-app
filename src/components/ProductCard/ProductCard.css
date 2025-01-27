@@ -1,0 +1,70 @@
+.head-card {
+    position: relative;
+    min-height: 165px;
+    background-position: center center;
+    border-radius: 20px;
+}
+.link {
+    text-decoration: none;
+}
+
+.card {
+    background: rgb(236, 232, 232);
+    border-radius: 19px;
+    width: 320px;
+    margin-top: 20px;
+}
+
+.foot {
+    padding: 20px 12px 15px 12px
+}
+
+.title {
+   color: var(--text-color);
+   font-size: 18px;
+   font-weight: 600;
+}
+
+.description {
+    color: var(--text-secondary-color);
+}
+
+.price {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: white;
+    padding: 3px 18px;
+    border-radius: 15px;
+    font-size: 18px;
+}
+
+.currency {
+    color: var(--primary-color);
+}
+
+.rating {
+    position: absolute;
+    bottom: -12px;
+    left: 15px;
+    background: white;
+    padding: 3px 8px;
+    border-radius: 15px;
+    font-size: 12px;
+}
+
+.add-to-cart {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    border: none;
+    width: 34px;
+    height: 34px;
+}
+
+.add-to-cart:hover {
+    background: var(--primary-color-hover);
+    cursor: pointer;
+}

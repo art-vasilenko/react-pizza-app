@@ -56,7 +56,9 @@
 .name {
     font-size: 15px;
     font-weight: 700;
+    text-align: center;
     color: var(--text-color);
+    margin-bottom: 5px;
 }
 
 .email {
