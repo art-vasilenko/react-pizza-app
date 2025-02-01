@@ -1,12 +1,14 @@
-import { useParams } from 'react-router-dom'
+import { useLoaderData} from 'react-router-dom'
+import { Products } from '../../interfaces/product.interface';
 
 
-export const Product = () => {
 
-    const { id } = useParams();
+export function Product()  {
+
+    const data = useLoaderData() as Products
   return (
     <>
-        Product - {id}
+        Product - {data.name}
     </>
   )
 }

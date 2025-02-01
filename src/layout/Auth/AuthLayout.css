@@ -1,0 +1,25 @@
+.logo-img {
+    width: 450px;
+    height: 450px;
+}
+
+.layout-auth {
+    display: flex;
+    min-height: 100vh;
+}
+
+.logo-auth {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-auth {
+    padding: 0;
+    flex: 1;
+    border-left: 1px solid var(--separator-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
