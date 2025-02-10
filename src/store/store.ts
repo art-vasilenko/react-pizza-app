@@ -7,7 +7,7 @@ export const store = configureStore({
     reducer: {
         user: userSlice.reducer
     }
-}) 
+})
   
 store.subscribe(() => {
     saveState({jwt: store.getState().user.jwt}, JWT_PERSISTENT_STATE)

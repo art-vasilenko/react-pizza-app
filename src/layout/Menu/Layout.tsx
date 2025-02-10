@@ -2,12 +2,16 @@ import {    NavLink, Outlet, useNavigate } from 'react-router-dom'
 import './Layout.css'
 import { Button } from '../../components/Button/Button'
 import  cn  from 'classnames'
+import { useDispatch } from 'react-redux'
+import { AppDispatch } from '../../store/store'
+import { userActions } from '../../store/user.slice'
 
 export const Layout = () => {
   const navigate = useNavigate()
+  const dispatch = useDispatch<AppDispatch>()
 
   const logout = () => {
-    localStorage.removeItem('jwt')
+    dispatch(userActions.logout())
     navigate('/auth/login')
   }  
   return (
@@ -20,11 +24,11 @@ export const Layout = () => {
         </div>
         <div className="menu">
           <NavLink to="/" className={({ isActive }) => cn('link', {'active': isActive})}>
-            <img src="./public/menu.svg" alt="" />
+            <img src="./menu.svg" alt="" />
             Меню
           </NavLink>
           <NavLink className="link" to="/cart">
-            <img src="./public/shopping.svg" alt="" />
+            <img src="./shopping.svg" alt="" />
             Корзина
           </NavLink>
         </div>

@@ -3,13 +3,11 @@ import { Button } from '../../components/Button/Button'
 import { Headling } from '../../components/Headling/Headling'
 import { Input } from '../../components/Input/Input'
 import './Login.css'
-import { FormEvent, useState } from 'react'
-import axios, { AxiosError } from 'axios'
-import { PREFIX } from '../../helpers/API'
-import { LoginResponse } from '../../interfaces/auth.interface'
-import { useDispatch } from 'react-redux'
-import { AppDispatch } from '../../store/store'
-import { userActions } from '../../store/user.slice'
+import { FormEvent, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { AppDispatch, RootState } from '../../store/store'
+import { login, userActions } from '../../store/user.slice'
+
 
 export type LoginForm = {
     email: {
@@ -22,11 +20,17 @@ export type LoginForm = {
 
 export const Login = () => {
     const dispatch = useDispatch<AppDispatch>()
-    const [error, setError] = useState<string | null>()
     const navigate = useNavigate()
+    const {jwt, loginErrorMessage }= useSelector((s: RootState) => s.user)
+
+    useEffect(() => {
+        if(jwt) {
+            navigate('/')
+        }
+    }, [jwt, navigate])
 
     const submit = async (e: FormEvent) => {
-        setError(null)
+        dispatch(userActions.cleanLoginError())
         e.preventDefault()
         const target = e.target as typeof e.target & LoginForm;
         const {email, password } = target
@@ -35,28 +39,13 @@ export const Login = () => {
     }
 
     const sendLogin = async (email: string, password: string) => {
-        try {
-            const { data } = await axios.post<LoginResponse>(`${PREFIX}/auth/login`, {
-                email,
-                password
-            })
-            console.log(data)
-            dispatch(userActions.addJwt(data.access_token))
-            navigate('/')
-        } catch(e) {
-            if(e instanceof AxiosError) {
-                console.error(e)
-                setError(e.response?.data.message)
-            }
-           
-        }
-        
+        dispatch(login({email, password}))  
     }
 
   return (
     <div className='login'>
         <Headling>Вход</Headling>
-        {error && <div className='error'>{error}</div>}
+        {loginErrorMessage && <div className='error'>{loginErrorMessage}</div>}
         <form className='form' onSubmit={ submit }>
             <div className='field'>
                 <label htmlFor="email">Ваш email</label>
