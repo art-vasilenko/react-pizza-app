@@ -1,0 +1,24 @@
+.headling {
+    margin-bottom: 40px;
+}
+
+.line {
+    max-width: 512px;
+    display: flex;
+    justify-content: space-between;
+    padding: 17px 0;
+}
+
+.hr {
+    max-width: 512px;
+    margin: 0;
+    border: 1px solid var(--primary-color);
+}
+
+.check {
+    display: flex;
+    max-width: 512px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}

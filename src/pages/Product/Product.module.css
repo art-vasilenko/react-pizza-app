@@ -1,0 +1,72 @@
+.head {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 25px;
+    max-width: 750px;
+}
+
+.back {
+    width: 70px;
+    height: 30px;
+    background: none;
+    border: 1px solid var(--primary-color);
+    border-radius: 15px;
+    text-align: center;
+    cursor: pointer;
+    
+}
+
+.title {
+    font-size: 25px;
+    font-weight: 600;
+    margin-left: 25px;
+}
+
+
+.addCart {
+    display: flex;
+    margin-left: auto;
+}
+
+.wrapper {
+    display: flex;
+}
+
+.image {
+    border-radius: 20px;
+    background-size: cover;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    padding-left: 50px;
+    gap: 15px;
+}
+
+.price {
+    display: flex;
+    min-width: 250px;
+    justify-content: space-between;
+    
+}
+
+.rate {
+    display: flex;
+    justify-content: space-between;
+}
+
+p {
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    
+}
+
+li {
+    margin-left: 20px;
+}

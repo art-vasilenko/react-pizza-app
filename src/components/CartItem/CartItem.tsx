@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../store/store';
 import { cartActions } from '../../store/cart.slice';
-import './CartItem.css'
+import styles from './CartItem.module.css';
 
 
 export interface CartItemProps {
@@ -16,34 +16,34 @@ export const CartItem = (props: CartItemProps) => {
     const dispath = useDispatch<AppDispatch>()
 
     const increase = () => {
-            dispath(cartActions.add(props.id))
+        dispath(cartActions.add(props.id))
     }
     const descrease = () => {
-           
+        dispath(cartActions.remove(props.id))   
     }
-    const remove= () => {
-           
+    const remove = () => {
+        dispath(cartActions.delete(props.id))  
     }
 
     return (
-        <div className='item'>
+        <div className={styles['item']}>
             <div 
-                className="image" style={{ backgroundImage: `url('${props.image}')` }}>
+                className={styles['image']} style={{ backgroundImage: `url('${props.image}')` }}>
             </div>
-            <div className='description'>
-                <div className="name-cart">{props.name}</div>
-                <div className='currency'>{props.price}&nbsp;</div>
+            <div className={styles['description']}>
+                <div className={styles['name']}>{props.name}</div>
+                <div className={styles['price']}>{props.price}&nbsp;р</div>
             </div>
-            <div className="actions">
-                <button className='button' onClick={descrease}>
-                    <img src="/shopping.svg" alt="Удалить" />
+            <div className={styles['actions']}>
+                <button className={styles['minus']} onClick={descrease}>
+                    <img className={styles['icon']} src="/minuc.png" alt="Удалить" />
                 </button>
-                <div>{props.count}</div>
-                <button className='button' onClick={increase}>
-                    <img src="/shopping.svg" alt="Добавить" />
+                <div className={styles['number']}>{props.count}</div>
+                <button className={styles['plus']} onClick={increase}>
+                    <img className={styles['icon']} src="/pluc.png" alt="Добавить" />
                 </button>
-                <button className='remove' onClick={remove}>
-                    <img src="/shopping.svg" alt="Удалить все" />
+                <button className={styles['remove']} onClick={remove}>
+                    <img className={styles['icon']} src="/delete.png" alt="Удалить все" />
                 </button>
             </div>
         </div>
